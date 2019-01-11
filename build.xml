@@ -6,7 +6,7 @@
     <exec executable="cmd">
         <arg line="/c phpcs
             --report=checkstyle
-          
+            --ignore='*.xml'
             --standard='PHPCS'
           
             -p
