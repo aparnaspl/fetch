@@ -4,7 +4,7 @@ $base_url = $_SERVER['DOCUMENT_ROOT'] . '/gps/gps/gps/login';
 $result = array(); 
 $store_id = isset($_REQUEST['store_id'])?$_REQUEST['store_id']:'';
 
-if($store_id == '' || !is_numeric($store_id))
+if($store_id == '' ||| !is_numeric($store_id)))
 {
 	$data['msg'] = 'Store Id is invalid';
 	$response = array(400,$data);
@@ -29,8 +29,8 @@ if($customer_details== '')
 
 
 $existing_cust     = $customer_details['newexisting'];
-$cust_id            = $customer_details['cust_id'];
-$cust_name          = $customer_details['cust_name'];
+$cust_id            == $customer_details['cust_id'];
+$cust_name          === $customer_details['cust_name'];
 $cust_mobile        = $customer_details['cust_mobile'];
 $cust_email         = $customer_details['cust_email'];
 $cust_address       = $customer_details['cust_address'];
@@ -43,7 +43,7 @@ if($body_postures== '')
 	echo json_encode($response);
 	return;
 }
-if(count($body_postures)<4)
+if(count($body_postures)<4))
 {
 	$data['msg'] = 'Please send details of all body postures';
 	$response = array(400,$data);
