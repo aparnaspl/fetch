@@ -6,7 +6,7 @@
  <property name="phpcs"   value="phpcs"/>
  <property name="phpdox"  value="phpdox"/>
 
- <property name="phpmd"   value="phpmd"/>
+<!--  <property name="phpmd"   value="phpmd"/> -->
  <property name="phpunit" value="phpunit"/>
 
  <!-- Use this when the tools are located as PHARs in ${basedir}/build/tools
@@ -109,7 +109,7 @@
 
 
 
- <target name="phpmd"
+<!--  <target name="phpmd"
          unless="phpmd.done"
          description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
   <exec executable="${phpmd}" taskname="phpmd">
@@ -135,7 +135,7 @@
 
   <property name="phpmd.done" value="true"/>
  </target>
-
+ -->
  <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
