@@ -1,90 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="fetch" default="full-build">
- <!-- By default, we assume all tools to be on the $PATH -->
-
- 
- <property name="phpcs"   value="phpcs"/>
-
-
-
-
- <property name="phpcs"   value="${basedir}/vendor/bin/phpcs"/>
- 
-
- <target name="full-build"
-          depends="phpcs,phpcs-ci"
-         description="Performs static analysis, runs the tests, and generates project documentation"/>
-
- <target name="full-build-parallel"
-         depends="phpcs,phpcs-ci"
-         description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
-
- <target name="quick-build"
-         depends="phpcs,phpcs-ci"
-         description="Performs a lint check and runs the tests (without generating code coverage reports)"/>
-
- <target name="static-analysis"
-         depends="phpcs,phpcs-ci"
-         description="Performs static analysis" />
-
- <!-- Adjust the threadCount attribute's value to the number of CPUs -->
- <target name="static-analysis-parallel"
-         description="Performs static analysis (executing the tools in parallel)">
-  <parallel threadCount="2">
-   <sequential>
-   
-    <antcall target="phpmd-ci"/>
-   </sequential>
-   <antcall target="lint"/>
-   <antcall target="phpcpd-ci"/>
-   <antcall target="phpcs-ci"/>
-   
-  </parallel>
- </target>
-
-
- 
- 
-
-
-
- <target name="phpcs"
-         unless="phpcs.done"
-         description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="${phpcs}" taskname="phpcs">
-   <arg value="--standard=PSR2" />
-   <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/src" />
-   <arg path="${basedir}/tests" />
-  </exec>
-
-  <property name="phpcs.done" value="true"/>
- </target>
-
- <target name="phpcs-ci"
-         unless="phpcs.done"
-        
-         description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${phpcs}" output="/dev/null" taskname="phpcs">
-   <arg value="--report=checkstyle" />
-   <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
-   <arg value="--standard=PSR2" />
-   <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/src" />
-   <arg path="${basedir}/tests" />
-  </exec>
-
-  <property name="phpcs.done" value="true"/>
- </target>
-
-
-
-
- 
- 
-
-
+<project name="MyProject" default="full-build">
+    <property name="phpcs"   value="phpcs"/>
+    <property name="phpdox"  value="phpdox"/>
+    <target name="full-build" depends="lint, phpdox" description="Performs static analysis, runs the tests, and generates project documentation"/>
+    <target name="lint" description="Perform syntax check of sourcecode files">
+        <apply executable="php" taskname="lint" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/module/">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="${basedir}/phpunit/tests">
+                <include name="**/*.php" />
+            </fileset>
+        </apply>
+    </target>
+    <target name="phpdox" description="Generate project documentation using phpDox">
+        <exec executable="${phpdox}" dir="${basedir}/ci/phpdox" taskname="phpdox"/>
+    </target>
 </project>
-
