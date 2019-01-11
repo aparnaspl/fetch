@@ -46,7 +46,7 @@
 
  <target name="phpcs-ci"
          unless="phpcs.done"
-         depends="prepare"
+        
          description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
   <exec executable="${phpcs}" output="/dev/null" taskname="phpcs">
    <arg value="--report=checkstyle" />
