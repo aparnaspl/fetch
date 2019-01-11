@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="MyProject" default="full-build">
+<project name="MyProject" default="phpcs">
     <property name="phpcs"   value="phpcs"/>
    
-    <target name="full-build" depends="lint" description="Performs static analysis, runs the tests, and generates project documentation"/>
-    <target name="lint" description="Perform syntax check of sourcecode files">
-        <apply executable="php" taskname="lint" failonerror="true">
-            <arg value="-l" />
-            <fileset dir="${basedir}/">
-                <include name="**/*.php" />
-            </fileset>
-            
-        </apply>
-    </target>
+    
 
     <target name="phpcs" description="Generate project documentation using phpcs">
         <exec executable="${phpcs}" dir="${basedir}/" taskname="phpdcs"/>
