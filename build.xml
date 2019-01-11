@@ -19,7 +19,7 @@
         <arg line="/c phpmd
             --report=checkstyle
             --ignore='*.xml'
-            --standard='PHPCS'
+            --standard='PHPMD'
           
             -p
             test.php " />
