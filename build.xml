@@ -7,7 +7,7 @@
         <arg line="/c phpcs
             --report=checkstyle
             --report-file='${basedir}/build/logs/checkstyle.xml'
-            --standard='${basedir}/docs/coding-standard/ruleset.xml'
+            --standard='PHPCS'
             --ignore=*\\lib\\Zend\\*
             -p
             test.php " />
