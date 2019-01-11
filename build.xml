@@ -5,7 +5,7 @@
      <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="${phpcs}" taskname="phpcs">
+  <exec executable="C:/xampp/php/phpcs" taskname="phpcs">
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
