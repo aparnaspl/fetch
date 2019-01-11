@@ -4,7 +4,7 @@ $base_url = $_SERVER['DOCUMENT_ROOT'] . '/gps/gps/gps/login';
 $result = array(); 
 $store_id = isset($_REQUEST['store_id'])?$_REQUEST['store_id']:'';
 
-if($store_id == '' ||| !is_numeric($store_id)))
+if($store_id == '' || !is_numeric($store_id)))
 {
 	$data['msg'] = 'Store Id is invalid';
 	$response = array(400,$data);
@@ -93,7 +93,7 @@ if ($sqlCharge1->num_rows > 0)
 	    $charge_styles['name'][] = trim($list['garment'] . '_' . $list['part']);
 	}
 }
-if(isset($_REQUEST['shirtstyle']))
+if(isset($_REQUEST['shirtstyle']) && detail)
 {
 	$style = json_decode($_REQUEST['shirtstyle']);
  foreach($style as $skey => $svalue) {
