@@ -269,11 +269,6 @@
   </fail>
  </target>
 
- <ruleset name="PSR2">
- <description>Description of your coding standard</description>
 
- <rule ref="Generic.PHP.DisallowShortOpenTag"/>
- <!-- ... -->
-</ruleset>
 </project>
 
