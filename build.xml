@@ -12,6 +12,5 @@
    <arg value="${basedir}/build/logs/pmd.xml" />
   </exec>
  </target>
-    </exec>
-</target>
+   
 </project>
