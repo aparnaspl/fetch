@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyProject" default="phpcs">
     <property name="phpcs"   value="phpcs"/>
-   
-    
-
-    <target name="phpcs" description="Generate project documentation using phpcs">
-        <exec executable="php" dir="${basedir}/" taskname="phpdcs"/>
+ 
+    <target name="phpcs" description="Perform syntax check of sourcecode files">
+        <apply executable="php" taskname="lint" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/">
+                <include name="**/*.php" />
+            </fileset>
+            
+        </apply>
     </target>
 </project>
