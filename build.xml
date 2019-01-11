@@ -2,18 +2,18 @@
 <project name="name-of-project" default="full-build">
    <property name="phpcs"   value="phpcs"/>
     <target name="full-build"
-         depends="prepare,static-analysis,phpunit,phpdox,-check-failure"
+        
          description="Performs static analysis, runs the tests, and generates project documentation"/>
     <target name="full-build-parallel"
-         depends="prepare,static-analysis-parallel,phpunit,phpdox,-check-failure"
+       depends="phpcs-ci"
          description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
 
  <target name="quick-build"
-         depends="prepare,lint,phpunit-no-coverage"
+         depends="phpcs-ci"
          description="Performs a lint check and runs the tests (without generating code coverage reports)"/>
 
  <target name="static-analysis"
-         depends="lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci"
+         depends="phpcs-ci"
          description="Performs static analysis" />
     <target name="static-analysis-parallel"
          description="Performs static analysis (executing the tools in parallel)">
