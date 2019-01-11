@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="MyProject" default="phpcs">
+<project name="MyProject" default="phpmd">
 <!--     <property name="phpcs"   value="phpcs"/> -->
     <property name="phpmd"   value="phpmd"/>
 
