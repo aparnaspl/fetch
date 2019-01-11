@@ -6,7 +6,7 @@
     <target name="phpmd">
     <exec executable="cmd">
         <arg line="/c phpmd
-            --report=checkstyle
+            --report=PMD
             --ignore='*.xml'
             --standard='PHPMD'
           
