@@ -2,17 +2,15 @@
 <project name="MyProject" default="phpcs">
     <property name="phpcs"   value="phpcs"/>
  
-     <target name="phpcs"
-         unless="phpcs.done"
-         description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
-  <exec executable="C:/xampp/php/phpcs" taskname="phpcs">
-   <arg value="--standard=PSR2" />
-   <arg value="--extensions=php" />
-   <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/src" />
-   <arg path="${basedir}/tests" />
-  </exec>
-
-  <property name="phpcs.done" value="true"/>
- </target>
+     <target name="phpcs">
+    <exec executable="cmd">
+        <arg line="/c phpcs
+            --report=checkstyle
+            --report-file='${basedir}/build/logs/checkstyle.xml'
+            --standard='${basedir}/docs/coding-standard/ruleset.xml'
+            --ignore=*\\lib\\Zend\\*
+            -p
+            application lib" />
+    </exec>
+</target>
 </project>
