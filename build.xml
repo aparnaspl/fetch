@@ -12,11 +12,11 @@
  
 
  <target name="full-build"
-          depends="pphpcs,phpcs-ci"
+          depends="phpcs,phpcs-ci"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="full-build-parallel"
-         depends="pphpcs,phpcs-ci"
+         depends="phpcs,phpcs-ci"
          description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
 
  <target name="quick-build"
