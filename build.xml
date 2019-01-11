@@ -5,6 +5,6 @@
     
 
     <target name="phpcs" description="Generate project documentation using phpcs">
-        <exec executable="${phpcs}" dir="${basedir}/" taskname="phpdcs"/>
+        <exec executable="php" dir="${basedir}/" taskname="phpdcs"/>
     </target>
 </project>
