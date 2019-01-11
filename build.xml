@@ -6,7 +6,7 @@
     <target name="lint" description="Perform syntax check of sourcecode files">
         <apply executable="php" taskname="lint" failonerror="true">
             <arg value="-l" />
-            <fileset dir="${basedir}/module/">
+            <fileset dir="${basedir}/">
                 <include name="**/*.php" />
             </fileset>
             <fileset dir="${basedir}/phpunit/tests">
