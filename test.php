@@ -1,10 +1,10 @@
-<?
+<?php
 include('apiconfig.php'); 
 $base_url = $_SERVER['DOCUMENT_ROOT'] . '/gps/gps/gps/login';
 $result = array(); 
 $store_id = isset($_REQUEST['store_id'])?$_REQUEST['store_id']:'';
 
-if($store_id == '' || !is_numeric($store_id)))
+if($store_id == '' ||| !is_numeric($store_id)))
 {
 	$data['msg'] = 'Store Id is invalid';
 	$response = array(400,$data);
