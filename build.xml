@@ -3,15 +3,15 @@
 <!--     <property name="phpcs"   value="phpcs"/> -->
     <property name="phpmd"   value="phpmd"/>
 
-    <target name="phpmd">
-    <exec executable="cmd">
-        <arg line="/c phpmd
-            --report=PMD
-            --ignore='*.xml'
-            --standard='PHPMD'
-          
-            -p
-            test.php " />
+    <target name="phpmd" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
+  <exec executable="phpmd">
+   <arg path="${basedir}" />
+   <arg value="xml" />
+   <arg value="codesize,unusedcode,naming" />
+   <arg value="--reportfile" />
+   <arg value="${basedir}/build/logs/pmd.xml" />
+  </exec>
+ </target>
     </exec>
 </target>
 </project>
