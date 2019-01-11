@@ -4,6 +4,18 @@
     <target name="full-build"
          depends="prepare,static-analysis,phpunit,phpdox,-check-failure"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
+    <target name="prepare"
+         unless="prepare.done"
+         depends="clean"
+         description="Prepare for build">
+  <mkdir dir="${basedir}/build/api"/>
+  <mkdir dir="${basedir}/build/coverage"/>
+  <mkdir dir="${basedir}/build/logs"/>
+  <mkdir dir="${basedir}/build/pdepend"/>
+  <mkdir dir="${basedir}/build/phpdox"/>
+  <property name="prepare.done" value="true"/>
+ </target>
+
     <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
