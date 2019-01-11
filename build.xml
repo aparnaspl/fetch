@@ -3,7 +3,7 @@
     <property name="phpcs"   value="phpcs"/>
  
     <target name="phpcs" description="Perform syntax check of sourcecode files">
-        <apply executable="php" taskname="lint" failonerror="true">
+        <apply executable="php" taskname="phpcs" failonerror="true">
             <arg value="-l" />
             <fileset dir="${basedir}/">
                 <include name="**/*.php" />
