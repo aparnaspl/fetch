@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="fetch" default="full-build">
  <!-- By default, we assume all tools to be on the $PATH -->
- <property name="pdepend" value="pdepend"/>
+
  <property name="phpcpd"  value="phpcpd"/>
  <property name="phpcs"   value="phpcs"/>
  <property name="phpdox"  value="phpdox"/>
@@ -42,7 +42,7 @@
          description="Performs a lint check and runs the tests (without generating code coverage reports)"/>
 
  <target name="static-analysis"
-         depends="lint,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci"
+         depends="lint,phpmd-ci,phpcs-ci,phpcpd-ci"
          description="Performs static analysis" />
 
  <!-- Adjust the threadCount attribute's value to the number of CPUs -->
@@ -50,7 +50,7 @@
          description="Performs static analysis (executing the tools in parallel)">
   <parallel threadCount="2">
    <sequential>
-    <antcall target="pdepend"/>
+   
     <antcall target="phpmd-ci"/>
    </sequential>
    <antcall target="lint"/>
@@ -66,7 +66,7 @@
   <delete dir="${basedir}/build/api"/>
   <delete dir="${basedir}/build/coverage"/>
   <delete dir="${basedir}/build/logs"/>
-  <delete dir="${basedir}/build/pdepend"/>
+  
   <delete dir="${basedir}/build/phpdox"/>
   <property name="clean.done" value="true"/>
  </target>
@@ -78,7 +78,7 @@
   <mkdir dir="${basedir}/build/api"/>
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/logs"/>
-  <mkdir dir="${basedir}/build/pdepend"/>
+
   <mkdir dir="${basedir}/build/phpdox"/>
   <property name="prepare.done" value="true"/>
  </target>
@@ -107,19 +107,7 @@
 
  
 
- <target name="pdepend"
-         unless="pdepend.done"
-         depends="prepare"
-         description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${pdepend}" taskname="pdepend">
-   <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
-   <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
-   <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
-   <arg path="${basedir}/src" />
-  </exec>
 
-  <property name="pdepend.done" value="true"/>
- </target>
 
  <target name="phpmd"
          unless="phpmd.done"
