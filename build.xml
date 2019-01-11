@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyProject" default="phpcs">
-    <property name="phpcs"   value="phpcs"/>
+<!--     <property name="phpcs"   value="phpcs"/> -->
     <property name="phpmd"   value="phpmd"/>
- 
+<!--  
      <target name="phpcs">
     <exec executable="cmd">
         <arg line="/c phpcs
@@ -13,7 +13,7 @@
             -p
             test.php " />
     </exec>
-</target>
+</target> -->
     <target name="phpmd">
     <exec executable="cmd">
         <arg line="/c phpmd
