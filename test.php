@@ -1,4 +1,4 @@
-<?php
+<?
 include('apiconfig.php'); 
 $base_url = $_SERVER['DOCUMENT_ROOT'] . '/gps/gps/gps/login';
 $result = array(); 
