@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyProject" default="full-build">
     <property name="phpcs"   value="phpcs"/>
-    <property name="phpdox"  value="phpdox"/>
+   
     <target name="full-build" depends="lint, phpdox" description="Performs static analysis, runs the tests, and generates project documentation"/>
     <target name="lint" description="Perform syntax check of sourcecode files">
         <apply executable="php" taskname="lint" failonerror="true">
@@ -12,9 +12,7 @@
             
         </apply>
     </target>
-    <target name="phpdox" description="Generate project documentation using phpDox">
-        <exec executable="${phpdox}" dir="${basedir}/" taskname="phpdox"/>
-    </target>
+
     <target name="phpcs" description="Generate project documentation using phpcs">
         <exec executable="${phpdox}" dir="${basedir}/" taskname="phpdcs"/>
     </target>
