@@ -2,7 +2,7 @@
 <project name="MyProject" default="full-build">
     <property name="phpcs"   value="phpcs"/>
    
-    <target name="full-build" depends="lint, phpdox" description="Performs static analysis, runs the tests, and generates project documentation"/>
+    <target name="full-build" depends="lint" description="Performs static analysis, runs the tests, and generates project documentation"/>
     <target name="lint" description="Perform syntax check of sourcecode files">
         <apply executable="php" taskname="lint" failonerror="true">
             <arg value="-l" />
@@ -14,6 +14,6 @@
     </target>
 
     <target name="phpcs" description="Generate project documentation using phpcs">
-        <exec executable="${phpdox}" dir="${basedir}/" taskname="phpdcs"/>
+        <exec executable="${phpcs}" dir="${basedir}/" taskname="phpdcs"/>
     </target>
 </project>
