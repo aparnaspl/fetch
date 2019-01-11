@@ -10,7 +10,7 @@
             --standard='${basedir}/docs/coding-standard/ruleset.xml'
             --ignore=*\\lib\\Zend\\*
             -p
-            test.php lib" />
+            test.php " />
     </exec>
 </target>
 </project>
