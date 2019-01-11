@@ -29,46 +29,7 @@
   </parallel>
  </target>
 
- <target name="clean"
-         unless="clean.done"
-         description="Cleanup build artifacts">
-  <delete dir="${basedir}/build/api"/>
-  <delete dir="${basedir}/build/coverage"/>
-  <delete dir="${basedir}/build/logs"/>
-  <delete dir="${basedir}/build/pdepend"/>
-  <delete dir="${basedir}/build/phpdox"/>
-  <property name="clean.done" value="true"/>
- </target>
-    <target name="prepare"
-         unless="prepare.done"
-         depends="clean"
-         description="Prepare for build">
-  <mkdir dir="${basedir}/build/api"/>
-  <mkdir dir="${basedir}/build/coverage"/>
-  <mkdir dir="${basedir}/build/logs"/>
-  <mkdir dir="${basedir}/build/pdepend"/>
-  <mkdir dir="${basedir}/build/phpdox"/>
-  <property name="prepare.done" value="true"/>
- </target>
- <target name="lint"
-         unless="lint.done"
-         description="Perform syntax check of sourcecode files">
-  <apply executable="php" taskname="lint">
-   <arg value="-l" />
 
-   <fileset dir="${basedir}">
-    <include name="**/*.php" />
-    <modified />
-   </fileset>
-
-   <fileset dir="${basedir}/tests">
-    <include name="**/*.php" />
-    <modified />
-   </fileset>
-  </apply>
-
-  <property name="lint.done" value="true"/>
- </target>
     <target name="phpcs"
          unless="phpcs.done"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
@@ -76,7 +37,7 @@
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/src" />
+   <arg path="${basedir}" />
    <arg path="${basedir}/tests" />
   </exec>
 
@@ -93,7 +54,7 @@
    <arg value="--standard=PSR2" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/src" />
+   <arg path="${basedir}" />
    <arg path="${basedir}/tests" />
   </exec>
 
