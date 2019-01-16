@@ -4,7 +4,7 @@
     <property name="lint" value="lint"/>
 <!--     <property name="phpcs"   value="phpcs"/>  -->
      <target name="full-build"
-             depends="phpcs,lint" />
+             depends="phpcs,phpunit" />
     <target name="phpcs">
         <exec executable="cmd">
         <arg line="/c phpcs
@@ -18,15 +18,15 @@
     </target> 
    
 
-    <target name="lint" description="Perform syntax check of sourcecode files">
-        <apply executable="php" failonerror="true">
-            <arg value="-l"/>
+   <target name="phpunit"
+         unless="phpunit.done"
+        
+         description="Run unit tests with PHPUnit">
+  <exec executable="/c phpunit" resultproperty="result.phpunit" taskname="phpunit">
+   <arg value="--configuration"/>
+   <arg path="${basedir}/phpunit.xml"/>
+  </exec>
 
-            <fileset dir="${basedir}/">
-                <include name="*.php"/>
-                <modified/>
-            </fileset>
-
-        </apply>
-    </target>
+  <property name="phpunit.done" value="true"/>
+ </target
   </project>
