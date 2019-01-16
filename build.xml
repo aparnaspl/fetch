@@ -22,7 +22,7 @@
   <exec executable="cmd">
     <arg value="/c"/>
     <arg value="phpunit.bat"/>
-    <arg path="${basedir}/phpunit.xml"/>
+<!--     <arg path="${basedir}/phpunit.xml"/> -->
   </exec>
 </target>
   </project>
