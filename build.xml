@@ -18,17 +18,11 @@
     </target> 
    
 
-   <target name="phpunit"
-         unless="phpunit.done"
-        
-         description="Run unit tests with PHPUnit">
-      <exec executable="phpunit" resultproperty="result.phpunit" taskname="phpunit">
-           <arg value="phpunit.bat"/>
-       <arg value="--configuration"/>
-          <arg value="-c" />
-       <arg path="${basedir}/phpunit.xml"/>
-      </exec>
-
-    <property name="phpunit.done" value="true"/>
-   </target>
+    <target name="phpunit">
+  <exec executable="cmd">
+    <arg value="/c"/>
+    <arg value="phpunit.bat"/>
+    <arg path="${basedir}/phpunit.xml"/
+  </exec>
+</target>
   </project>
