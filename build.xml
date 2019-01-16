@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyProject" default="full-build">
     <property name="phpunit" value="phpunit"/>
-    <property name="phpcs"   value="phpcs"/> 
+    <property name="lint" value="lint"/>
+<!--     <property name="phpcs"   value="phpcs"/>  -->
      <target name="full-build"
-             depends="phpcs,phpunit" />
+             depends="phpcs,lint" />
     <target name="phpcs">
         <exec executable="cmd">
         <arg line="/c phpcs
@@ -16,7 +17,7 @@
      </exec>
     </target> 
    
-     <target name="phpunit"
+<!--      <target name="phpunit"
         
          description="Run unit tests with PHPUnit">
           <exec executable="c:/xampp/php/./phpunit" resultproperty="result.phpunit" taskname="phpunit">
@@ -25,5 +26,16 @@
           </exec>
 
           <property name="phpunit.done" value="true"/>
- </target>
+ </target> -->
+    <target name="lint" description="Perform syntax check of sourcecode files">
+        <apply executable="php" failonerror="true">
+            <arg value="-l"/>
+
+            <fileset dir="${basedir}/">
+                <include name="*.php"/>
+                <modified/>
+            </fileset>
+
+        </apply>
+    </target>
   </project>
