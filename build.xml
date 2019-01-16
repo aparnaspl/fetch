@@ -23,6 +23,7 @@
         
          description="Run unit tests with PHPUnit">
       <exec executable="phpunit" resultproperty="result.phpunit" taskname="phpunit">
+           <arg value="phpunit.bat"/>
        <arg value="--configuration"/>
           <arg value="-c" />
        <arg path="${basedir}/phpunit.xml"/>
