@@ -22,8 +22,9 @@
          unless="phpunit.done"
         
          description="Run unit tests with PHPUnit">
-      <exec executable="${exe.phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+      <exec executable="phpunit" resultproperty="result.phpunit" taskname="phpunit">
        <arg value="--configuration"/>
+          <arg value="-c" />
        <arg path="${basedir}/phpunit.xml"/>
       </exec>
 
