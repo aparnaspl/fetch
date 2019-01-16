@@ -6,7 +6,7 @@
         <arg line="/c phpcs
             --report=checkstyle
             --ignore='*.xml'
-            --standard='PHPCS'
+            --standard='PSR2'
 
             -p
             test.php " />
