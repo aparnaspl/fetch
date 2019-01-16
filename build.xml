@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyProject" default="phpcs">
     <property name="phpcs"   value="phpcs"/> 
-  
-
      <target name="phpcs">
-    <exec executable="cmd">
+        <exec executable="cmd">
         <arg line="/c phpcs
             --report=checkstyle
             --ignore='*.xml'
@@ -12,9 +10,6 @@
 
             -p
             test.php " />
-    </exec>
-</target> 
-    
-    </exec>
-
-</project>
+     </exec>
+    </target> 
+  </project>
