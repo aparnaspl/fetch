@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="MyProject" default="phpcs">
+<project name="MyProject" default="full-build">
+    <property name="phpunit" value="phpunit"/>
     <property name="phpcs"   value="phpcs"/> 
-     <target name="phpcs">
+     <target name="full-build"
+             depends="phpcs,phpunit">
         <exec executable="cmd">
         <arg line="/c phpcs
             --report=checkstyle
@@ -12,4 +14,15 @@
             test.php " />
      </exec>
     </target> 
+     <target name="phpunit"
+         unless="phpunit.done"
+         depends="prepare"
+         description="Run unit tests with PHPUnit">
+          <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+           <arg value="--configuration"/>
+           <arg path="${basedir}/build/phpunit.xml"/>
+          </exec>
+
+          <property name="phpunit.done" value="true"/>
+ </target>
   </project>
