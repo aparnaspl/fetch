@@ -3,7 +3,8 @@
     <property name="phpunit" value="phpunit"/>
     <property name="phpcs"   value="phpcs"/> 
      <target name="full-build"
-             depends="phpcs,phpunit">
+             depends="phpcs,phpunit" />
+    <target name="phpcs">
         <exec executable="cmd">
         <arg line="/c phpcs
             --report=checkstyle
