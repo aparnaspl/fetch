@@ -17,16 +17,7 @@
      </exec>
     </target> 
    
-<!--      <target name="phpunit"
-        
-         description="Run unit tests with PHPUnit">
-          <exec executable="c:/xampp/php/./phpunit" resultproperty="result.phpunit" taskname="phpunit">
-           <arg value="--configuration"/>
-           <arg path="${basedir}/phpUnit.xml"/>
-          </exec>
 
-          <property name="phpunit.done" value="true"/>
- </target> -->
     <target name="lint" description="Perform syntax check of sourcecode files">
         <apply executable="php" failonerror="true">
             <arg value="-l"/>
